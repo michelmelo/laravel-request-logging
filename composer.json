@@ -1,7 +1,6 @@
 {
     "name": "michelmelo/laravel-request-logging",
     "description": "Write all incoming requests and there responses",
-    "version": "1.0.0",
     "license": "MIT",
     "authors": [
         {
