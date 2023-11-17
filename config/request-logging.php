@@ -24,6 +24,7 @@ return [
         'stack',
     ],
     'log-level'            => 'info',
+    'log-enabled'            => true,
     'warning-log-channels' => [
         'stack',
     ],

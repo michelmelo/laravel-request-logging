@@ -71,7 +71,10 @@ class LogRequest
         $format  = '#{requestId} IP: {ip} {method} {uri} - Body: {requestBody} - Files: {files}';
         $message = strtr(config('request-logging.request-log-format', $format), $data);
 
-        $this->writeMessage($message);
+        if (config('request-logging.log-enabled',true)) {
+            $this->writeMessage($message);
+        }
+
 
         if (config('request-logging.database-logging.enabled')) {
             $this->dbRecordId = DB::table(config('request-logging.database-logging.table'))
