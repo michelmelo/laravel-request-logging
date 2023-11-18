@@ -127,7 +127,9 @@ class LogRequest
         $format  = '#{requestId} User: #{userId} IP: {ip} DB: #{databaseId} {responseStatusCode} - Duration: {duration} - Body: {responseBody} {isRedirecting}';
         $message = strtr(config('request-logging.response-log-format', $format), $data);
 
-        $this->writeMessage($message);
+        if (config('request-logging.log-enabled',true)) {
+            $this->writeMessage($message);
+        }
 
         if (config('request-logging.database-logging.enabled')) {
             DB::table(config('request-logging.database-logging.table'))
